@@ -23,6 +23,9 @@ export class AppComponent {
     }
   ];
 
+  error = '';
+  errors = false;
+
   constructor(private serverService: ServerService) {}
 
   onAddServer(name: string) {
@@ -50,7 +53,10 @@ export class AppComponent {
         (servers: any[]) => {
           this.servers = servers;
         },
-        (err) => console.log(err)
+        (err) => {
+          this.error = err;
+          this.errors = true;
+        }
       );
   }
 }

@@ -7,6 +7,12 @@
       <button class="btn btn-primary" (click)="onSave()">Save Server</button>
       <button class="btn btn-primary" (click)="onGet()">Get Servers</button>
       <br><br>
+      <div
+        class="alert alert-danger"
+        role="alert"
+        *ngIf="error">
+        <strong>Error:</strong> {{ error }}
+      </div>
       <ul class="list-group" *ngFor="let server of servers">
         <li class="list-group-item">{{ server.name }} (ID: {{ server.id }})</li>
       </ul>
