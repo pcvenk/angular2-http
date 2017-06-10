@@ -5,6 +5,6 @@ import {Http} from '@angular/http';
 export class ServerService {
   constructor(private http: Http) {}
   storeServers(servers: any[]) {
-    return this.http.post('https://ng-http-a127b.firebaseio.com/', servers);
+    return this.http.post('https://ng-http-a127b.firebaseio.com/data.json', servers);
   }
 }
