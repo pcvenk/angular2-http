@@ -15,7 +15,7 @@ export class ServerService {
   }
 
   getServers() {
-    return this.http.get('https://ng-http-a127b.firebaseio.com/data')
+    return this.http.get('https://ng-http-a127b.firebaseio.com/data.json')
     // instead of transforming the data with the request made, you can use the map function
     // (built with rxjs/Rx package and transform data in a centralized space via a service
     // the map operator is a built in operator for the observables
@@ -31,6 +31,15 @@ export class ServerService {
       .catch(
         (res: Response) => {
           return Observable.throw('Ooopps, something went wrong');
+        }
+      );
+  }
+
+  getAppName() {
+    return this.http.get('https://ng-http-a127b.firebaseio.com/AppName')
+      .map(
+        (response: Response) => {
+          return response.json();
         }
       );
   }
