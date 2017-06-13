@@ -36,7 +36,7 @@ export class ServerService {
   }
 
   getAppName() {
-    return this.http.get('https://ng-http-a127b.firebaseio.com/AppName')
+    return this.http.get('https://ng-http-a127b.firebaseio.com/AppName.json')
       .map(
         (response: Response) => {
           return response.json();
